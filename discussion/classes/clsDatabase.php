@@ -1,9 +1,8 @@
 <?php
 /*
- * Created on Feb 2, 2013
- *
- * To change the template for this generated file go to
- * Window - Preferences - PHPeclipse - PHP - Code Templates
+ * Created: 2 February 2013
+ * Author: Dan Hillman (dhillman@bu.edu)
+ * 
  */
  
  class Database {
