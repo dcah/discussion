@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:small;
+	}
+
+
+.section {
+	padding-left: 1em;
+	background-color:#eee;
+	padding-top: .3em;
+	padding-bottom: .3em;
+	border: 1px solid #ccc;
+	}
+
+.section p, .topic p, .threadHeader p {
+	margin: 0;
+	padding: 0;
+	}
+	
+.section p:first-child, .threadHeader p:first-child {
+	font-weight: bold;
+	}
+
+.topic {
+	padding-left: 1em;
+	background-color:#fff;
+	padding-top: .3em;
+	padding-bottom: .3em;
+	border: 1px solid #ccc;
+	}
+
+.postid {
+	color: #ccc;
+	font-size: 150%;
+	font-weight: bold;
+	float: right;
+	}
+	
+.postid a:hover {
+	background-color: #c2ebb1;
+	}
+
+
+	
+/* Data tables */
+table.data {
+	border-collapse: collapse;
+	border: 1px solid #333;
+	margin: 2em;
+	}
+
+table.data td {
+	padding: .7em;
+	border: 1px solid #333;
+	}
+
+table.data th {
+	padding: .7em;
+	border: 1px solid #333;
+	background-color: #EDEDF3;
+	text-align: left;
+	}
