@@ -1,9 +1,7 @@
 <?php
 /*
- * Created on Feb 2, 2013
- *
- * To change the template for this generated file go to
- * Window - Preferences - PHPeclipse - PHP - Code Templates
+ * Created: 2 February 2013
+ * Author: Dan Hillman (dhillman@bu.edu)
  */
  
 require("classes/clsDatabase.php");
@@ -12,9 +10,11 @@ require("classes/clsListThreads.php");
 $dbObj = new Database();
 $listingObj = new ListThreads();
 
-$listingArr = $listingObj->getAllThreadsArray($dbObj->getDbConn());
- 
- 
+//Fetch for this threadTopicID
+$threadTopicID = 9;
+
+$listingArr = $listingObj->getAllThreadsArray($dbObj->getDbConn(), $threadTopicID);
+  
 ?>
 
 <!DOCTYPE html>
@@ -27,23 +27,30 @@ $listingArr = $listingObj->getAllThreadsArray($dbObj->getDbConn());
 <h1>Theads</h1>
 
 <table class="data">
-<tr>
-<th>ID</th>
-<th>Name</th>
-</tr>
 
 <?php
-	foreach ($listingArr as $key=>$value) {
-?>
 
-<td><?= $value->getID() ?></td>
-<td><?= $value->getName() ?></td>
-</tr>		
+foreach ($listingArr as $key=>$value) {
 
-<?php				
+	if (get_class($value) == "Topic") {
+		print '<tr><td colspan="4" class="threadHeader">';		
+		print '<p>' . $value->getName() . '</p>';
+		print '<p>' . $value->getDescription() . '</p></td></tr>';
+		print '<tr><th>Thread</th><th>Activity</th><th>Unread</th><th>Posts</th></tr>';			
+	} else {
+		print '<tr>';		
+		print '<td><a href="listPosts.php?id=' . $value->getID() . '">' . $value->getName() . '</a></td>';
+		print '<td></td>';
+		print '<td></td>';
+		print '<td></td>';
 	}
+	print '</tr>';
+
+}
+
 ?>
 
-</table>
+
+
 </body>
 </html>
