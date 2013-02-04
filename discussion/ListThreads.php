@@ -39,7 +39,7 @@ foreach ($listingArr as $key=>$value) {
 		print '<tr><th>Thread</th><th>Activity</th><th>Unread</th><th>Posts</th></tr>';			
 	} else {
 		print '<tr>';		
-		print '<td><a href="listPosts.php?id=' . $value->getID() . '">' . $value->getName() . '</a></td>';
+		print '<td><a href="ListPosts.php?id=' . $value->getID() . '">' . $value->getName() . '</a></td>';
 		print '<td></td>';
 		print '<td></td>';
 		print '<td></td>';
