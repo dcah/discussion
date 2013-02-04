@@ -1,51 +1,57 @@
 <?php
 /*
- * Created on Feb 2, 2013
- *
- * To change the template for this generated file go to
- * Window - Preferences - PHPeclipse - PHP - Code Templates
+ * Created: 2 February 2013
+ * Author: Dan Hillman (dhillman@bu.edu)
+ * 
  */
  
 require("classes/clsDatabase.php");
-require("classes/clsListSections.php");
+require("classes/clsListSections01.php");
  
 $dbObj = new Database();
 $listingObj = new ListSections();
 
-$listingArr = $listingObj->getAllSectionsArray($dbObj->getDbConn());
- 
+// $courseID identifies which course to list
+$courseID = 1;
+
+$listingArr = $listingObj->getAllSectionsArray($dbObj->getDbConn(), $courseID);
+
  
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sections</title>
+<title>Discussions</title>
 <link href="media/discussion.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
-<h1>Sections</h1>
+<h1>Discussions</h1>
 
-<table class="data">
-<tr>
-<th>ID</th>
-<th>Name</th>
-<th>Description</th>
-</tr>
+
 
 <?php
 	foreach ($listingArr as $key=>$value) {
+			
+	// Write the div class according to object type
+	print '<div class="';
+	if (get_class($value) == "Section")
+		print 'section';
+	else
+		print 'topic';
+	print '">';
+		
 ?>
 
-<td><?= $value->getID() ?></td>
-<td><?= $value->getName() ?></td>
-<td><?= $value->getDescription() ?></td>
-</tr>		
+<p><?= $value->getName() ?></p>
+<p><?= $value->getDescription() ?></p>
+</div>		
 
 <?php				
 	}
 ?>
 
-</table>
+
+
 </body>
 </html>

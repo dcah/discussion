@@ -31,50 +31,57 @@ $listingArr = $listingObj->getAllPostsArray($dbObj->getDbConn(), $postThreadID);
 
 foreach ($listingArr as $key=>$value) {
 
-	if (get_class($value) == "Topic") {
-		print $value->getName();
+	if (get_class($value) == "Thread") {
+		
+		print '<h2>' . $value->getName() . '</h2>';
+		
+		// Initiate table for posts
+		print '<table class="data">';
 	} else {
+		print '<tr valign="top">';
 		
-$value->getID();
-$value->getUser();
-$value->getFollows();
-$value->time_elapsed_string($value->getTimestamp());
-
-
-$value->getContent();
+		// User
+		print '<td>';
 		
+		// If a path to an image exists, use it
+		if ($value->getImagePath()) {
+			print '<img src="' . $value->getImagePath() . '" width="100" height="100" alt=""><br />';		
+		}
+		
+		// Close cell
+		print $value->getUser() . '</td>';
+				
+		// Post
+		print '<td>';
+		
+		//print '<div class="postid"><a href="#2">2</a></div>';
+		
+		print '<div class="postid"><a href="#' . $value->getRank() . '">' . $value->getRank() . '</a></div>';
+		
+		// Date posted
+		print '<p>posted ' . $value->time_elapsed_string($value->getTimestamp()) . ' ago</p>';
+		echo '<p>' . date("g:i a F j, Y ", strtotime($value->getTimestamp())) . '</p>';
+		
+		// Reply-to
+		if ($value->getFollows())
+			print '<p>reply to ' . $value->getFollows() . '</p>';
+		
+		
+		print $value->getContent();
+		
+		// Use ID for Reply
+		//print $value->getID();
+		// End post
+		print '</tr>';		
 	}
 }
 
+// Close table
+print '</table>';
+
 ?>
 
 
-<table class="data">
-<tr>
-<th>ID</th>
-<th>UserID</th>
-<th>Follows</th>
-<th>Timestamp</th>
-<th>Content</th>
-</tr>
 
-<?php
-	foreach ($listingArr as $key=>$value) {
-?>
-
-<td><?= $value->getID() ?></td>
-<td><?= $value->getUser() ?></td>
-<td><?= $value->getFollows() ?></td>
-<td>Posted <?= $value->time_elapsed_string($value->getTimestamp()) ?> ago</td>
-
-
-<td><?= $value->getContent() ?></td>
-</tr>		
-
-<?php				
-	}
-?>
-
-</table>
 </body>
 </html>
