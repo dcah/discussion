@@ -31,27 +31,24 @@ $listingArr = $listingObj->getAllSectionsArray($dbObj->getDbConn(), $courseID);
 
 
 <?php
-	foreach ($listingArr as $key=>$value) {
-			
-	// Write the div class according to object type
-	print '<div class="';
-	if (get_class($value) == "Section")
-		print 'section';
-	else
-		print 'topic';
-	print '">';
-		
-?>
+// Different output for different objects
+foreach ($listingArr as $key=>$value) {
 
-<p><?= $value->getName() ?></p>
-<p><?= $value->getDescription() ?></p>
-</div>		
-
-<?php				
+	if (get_class($value) == "Section") {
+		print '<div class="section">';		
+		print '<p>' . $value->getName() . '</p>';
+		print '<p>' . $value->getDescription() . '</p>';		
+		print '</div>';
+	} else {
+		print '<div class="topic">';		
+		print '<p><a href="listThreads.php?id=' . $value->getID() . '">' . $value->getName() . '</a></p>';
+		print '<p>' . $value->getDescription() . '</p>';
+		print '</div>';
 	}
+
+
+}
 ?>
-
-
 
 </body>
 </html>
