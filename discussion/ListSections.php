@@ -6,7 +6,7 @@
  */
  
 require("classes/clsDatabase.php");
-require("classes/clsListSections01.php");
+require("classes/clsListSections.php");
  
 $dbObj = new Database();
 $listingObj = new ListSections();
