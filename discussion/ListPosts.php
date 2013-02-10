@@ -35,7 +35,7 @@ $listingArr = $listingObj->getAllPostsArray($dbObj->getDbConn(), $clean['id']);
 </head>
 <body>
 <h1>Posts</h1>
-
+<p>test1</p>
 <?php
 
 foreach ($listingArr as $key=>$value) {
