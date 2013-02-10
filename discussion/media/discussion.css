@@ -82,7 +82,7 @@ a:hover {color:#000;text-decoration:none;}
  
 #tooltip .tipHeader {
     height:8px;
-    background:url(images/tipHeader.gif) no-repeat;
+    /*background:url(images/tipHeader.gif) no-repeat;*/
 	}
  
 /* IE hack */
@@ -95,6 +95,6 @@ a:hover {color:#000;text-decoration:none;}
  
 #tooltip .tipFooter {
     height:8px;
-    background:url(images/tipFooter.gif) no-repeat;
+    /* background-color: #FF0; */
 	}
 
