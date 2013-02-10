@@ -10,10 +10,18 @@ require("classes/clsListPosts.php");
 $dbObj = new Database();
 $listingObj = new ListPosts();
 
-//Only fetch posts for this id
-$postThreadID = 7;
+// $_GET['id'] is filtered and stored in $clean['id']
+$clean = array();
+if (ctype_digit($_GET['id'])) {
+	$clean['id'] = $_GET['id'];
+} else {
+	$page = 'ListThreads.php';
+ 	header('Location:'.$page);
+}
 
-$listingArr = $listingObj->getAllPostsArray($dbObj->getDbConn(), $postThreadID);
+
+
+$listingArr = $listingObj->getAllPostsArray($dbObj->getDbConn(), $clean['id']);
  
  
 ?>
