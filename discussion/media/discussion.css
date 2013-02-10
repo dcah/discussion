@@ -64,3 +64,37 @@ table.data th {
 	background-color: #EDEDF3;
 	text-align: left;
 	}
+	
+/* Tooltip via http://www.queness.com/post/92/create-a-simple-cssjavascript-tooltip-with-jquery */
+
+body {font-family:arial;font-size:12px;text-align:center;}
+div#paragraph {width:300px;margin:0 auto;text-align:left}
+a {color:#aaa;text-decoration:none;cursor:pointer;cursor:hand}
+a:hover {color:#000;text-decoration:none;}
+
+#tooltip {
+    position:absolute;
+    z-index:9999;
+    color:#fff;
+    font-size:10px;
+    width:180px;
+	}
+ 
+#tooltip .tipHeader {
+    height:8px;
+    background:url(images/tipHeader.gif) no-repeat;
+	}
+ 
+/* IE hack */
+*html #tooltip .tipHeader {margin-bottom:-6px;}
+ 
+#tooltip .tipBody {
+    background-color:#000;
+    padding:5px;
+	}
+ 
+#tooltip .tipFooter {
+    height:8px;
+    background:url(images/tipFooter.gif) no-repeat;
+	}
+

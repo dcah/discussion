@@ -31,6 +31,7 @@ $listingArr = $listingObj->getAllPostsArray($dbObj->getDbConn(), $clean['id']);
 <head>
 <title>Posts</title>
 <link href="media/discussion.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="media/jquery-1.9.1.min.js"></script>
 </head>
 <body>
 <h1>Posts</h1>
@@ -56,7 +57,7 @@ foreach ($listingArr as $key=>$value) {
 			print '<img src="' . $value->getImagePath() . '" width="100" height="100" alt=""><br />';		
 		}
 		
-		// Close cell
+		// Add user and close cell
 		print $value->getUser() . '</td>';
 				
 		// Post
@@ -89,7 +90,11 @@ print '</table>';
 
 ?>
 
+<p>test</p>
 
+<div id="paragraph">
+A paragraph typically consists of a unifying main point, thought, or idea accompanied by supporting details. The non-fiction paragraph usually begins with the general and moves towards the more specific so as to advance an argument or point of view. Each <a rel="tooltip" title="A paragraph typically consists of a unifying main point, thought, or idea accompanied by <b>supporting details</b>">paragraph</a> builds on what came before and lays the ground for what comes next. Paragraphs generally range three to seven sentences all combined in a single paragraphed statement. In prose fiction successive details, for example; but it is just as common for the point of a prose paragraph to occur in the middle or the end. A paragraph can be as short as one word or run the length of multiple pages, and may consist of one or many <a rel="tooltip" title="Testing of Sentences">sentences</a>. When dialogue is being quoted in fiction, a new paragraph is used each time the person being quoted changed.
+</div>
 
 </body>
 </html>
