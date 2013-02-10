@@ -12,7 +12,7 @@ $dbObj = new Database();
 $listingObj = new ListSections();
 
 // $courseID identifies which course to list
-$courseID = 1;
+$courseID = 2;
 
 $listingArr = $listingObj->getAllSectionsArray($dbObj->getDbConn(), $courseID);
 
